@@ -57,12 +57,15 @@
     }
 
     .title {
+      min-width: 0;
       font-size: clamp(18px, 2vw, 26px);
       font-weight: 700;
       letter-spacing: 0.02em;
     }
 
     .round {
+      flex: 0 0 auto;
+      white-space: nowrap;
       color: var(--muted);
       font-size: 14px;
     }
@@ -77,7 +80,7 @@
 
     .letters {
       display: grid;
-      grid-template-columns: repeat(5, minmax(70px, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: clamp(10px, 1.4vw, 20px);
       width: 100%;
     }
@@ -100,7 +103,7 @@
       width: 100%;
       min-height: 74px;
       display: grid;
-      grid-template-columns: repeat(5, minmax(70px, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: clamp(10px, 1.4vw, 20px);
       opacity: 0;
       transform: translateY(8px);
@@ -113,11 +116,12 @@
     }
 
     .word {
+      min-width: 0;
       text-align: center;
       font-size: clamp(16px, 2.2vw, 28px);
       color: var(--accent2);
       font-weight: 650;
-      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .hint {
@@ -149,22 +153,72 @@
 
     @media (max-width: 700px) {
       .app {
-        width: 94vw;
+        width: calc(100vw - 20px);
         min-height: 82vh;
-        padding: 20px 16px;
+        padding: 20px 12px;
         border-radius: 22px;
       }
 
+      .topbar {
+        gap: 10px;
+      }
+
+      .title {
+        font-size: clamp(17px, 5vw, 22px);
+      }
+
+      .round {
+        font-size: clamp(12px, 3.8vw, 14px);
+      }
+
       .letters, .words {
-        gap: 8px;
+        width: 100%;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 6px;
       }
 
       .letter-card {
-        border-radius: 14px;
+        min-width: 0;
+        border-radius: 12px;
+        font-size: clamp(28px, 10vw, 48px);
+      }
+
+      .word {
+        font-size: clamp(11px, 3.2vw, 15px);
+        line-height: 1.15;
       }
 
       .main {
-        gap: 28px;
+        min-width: 0;
+        gap: 24px;
+      }
+
+      .hint {
+        font-size: clamp(13px, 3.8vw, 16px);
+        line-height: 1.45;
+      }
+
+      .key {
+        padding: 3px 8px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .app {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .letters, .words {
+        gap: 5px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .round {
+        font-size: 12px;
       }
     }
   </style>
