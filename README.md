@@ -2,6 +2,8 @@
 
 Een eenvoudige browser-app om het NAVO-spellingsalfabet te oefenen.
 
+[https://henkjannl.github.io/nato-alphabet-trainer](https://henkjannl.github.io/nato-alphabet-trainer)
+
 ## Gebruik
 
 1. Open `index.html` in een browser.
